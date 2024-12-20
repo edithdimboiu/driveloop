@@ -7,8 +7,8 @@ const CarCard = ({ car }) => {
       <div className="flex flex-col sm:flex-row sm:space-x-4">
         <Image
           src={`/images/cars/${car.image}`}
-          width={400}
-          height={100}
+          width={600}
+          height={150}
           alt={carName}
           className="w-full sm:w-44 sm:h-32 mb-3 sm:mb-0 object-cover rounded-lg"
         />
