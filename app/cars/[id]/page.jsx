@@ -2,12 +2,14 @@ import Heading from "@/components/Heading";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa";
-import cars from "@/data/cars.json";
 import BookingForm from "@/components/BookingForm";
+import connectDB from "@/config/database";
+import Car from "@/models/Car";
 
-const CarPage = ({ params }) => {
+const CarPage = async ({ params }) => {
+  await connectDB();
   const { id } = params;
-  const car = cars.find(car => car.id === id);
+  const car = await Car.findById(id).lean();
   const carName = `${car.manufacturer} ${car.model} ${car.year}`;
 
   if (!car) {
