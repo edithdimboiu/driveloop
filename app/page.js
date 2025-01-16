@@ -1,8 +1,12 @@
 import CarCard from "@/components/CarCard";
 import Heading from "@/components/Heading";
-import cars from "@/data/cars.json";
+import connectDB from "@/config/database";
+import Car from "@/models/Car";
 
-export default function Home() {
+export default async function Home() {
+  await connectDB();
+  const cars = await Car.find({}).lean();
+
   return (
     <>
       <Heading title="Available cars" />
