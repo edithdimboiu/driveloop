@@ -1,11 +1,9 @@
 import CarCard from "@/components/CarCard";
 import Heading from "@/components/Heading";
-import connectDB from "@/config/database";
-import Car from "@/models/Car";
+import { getAllCars } from "./services/getAllCars";
 
 export default async function Home() {
-  await connectDB();
-  const cars = await Car.find({}).lean();
+  const cars = await getAllCars();
 
   return (
     <>
