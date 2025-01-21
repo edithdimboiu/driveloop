@@ -1,0 +1,21 @@
+const InputField = ({ containerMargin = "mb-4", id, type = "text" }) => {
+  const formatLabel = id => {
+    return id.replace("-", " ").replace(/\b\w/g, char => char.toUpperCase());
+  };
+  return (
+    <div className={containerMargin}>
+      <label htmlFor={id} className="block text-gray-700 font-bold mb-2">
+        {formatLabel(id)}
+      </label>
+      <input
+        type={type}
+        id={id}
+        name={id}
+        className="border rounded w-full py-2 px-3"
+        required
+      />
+    </div>
+  );
+};
+
+export default InputField;
