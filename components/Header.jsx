@@ -19,13 +19,13 @@ const Header = () => {
                 </Link>
                 {/* Logged In Only */}
                 <Link
-                  href=""
+                  href="/rented"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-neutral-700 hover:text-white"
                 >
                   Rented
                 </Link>
                 <Link
-                  href=""
+                  href="/cars/add"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-neutral-700 hover:text-white"
                 >
                   Add Car
@@ -37,10 +37,16 @@ const Header = () => {
           <div className="ml-auto">
             <div className="ml-4 flex items-center md:ml-6">
               {/* Logged Out Only */}
-              <Link href="" className="mr-3 text-gray-800 hover:text-gray-600">
+              <Link
+                href="/login"
+                className="mr-3 text-gray-800 hover:text-gray-600"
+              >
                 <FaSignInAlt className="inline mr-1" /> Login
               </Link>
-              <Link href="" className="mr-3 text-gray-800 hover:text-gray-600">
+              <Link
+                href="/register"
+                className="mr-3 text-gray-800 hover:text-gray-600"
+              >
                 <FaUser className="inline mr-1" />
                 Register
               </Link>
@@ -60,20 +66,20 @@ const Header = () => {
       <div className="md:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
           <Link
-            href=""
+            href="/"
             className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
           >
             Cars
           </Link>
           {/* Logged In Only */}
           <Link
-            href=""
+            href="/rented"
             className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
           >
             Rented
           </Link>
           <Link
-            href=""
+            href="/cars/add"
             className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
           >
             Add Car
