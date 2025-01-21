@@ -7,7 +7,9 @@ export default async function Home() {
 
   return (
     <>
-      <Heading title="Available cars" />
+      <section className="bg-white mb-3 px-2 py-2">
+        <Heading text="Available cars" />
+      </section>
       {cars.length > 0 ? (
         cars.map(car => <CarCard car={car} key={car.id}></CarCard>)
       ) : (

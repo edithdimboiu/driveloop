@@ -1,8 +1,8 @@
-const Heading = ({ title }) => {
+const Heading = ({ text, extraClassName = "" }) => {
   return (
-    <section className="bg-white mb-3 px-2 py-2">
-      <h1 className="text-2xl font-bold text-gray-800">{title}</h1>
-    </section>
+    <h2 className={`text-2xl font-bold text-gray-800 ${extraClassName}`}>
+      {text}
+    </h2>
   );
 };
 

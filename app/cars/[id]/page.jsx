@@ -11,14 +11,12 @@ const CarPage = async ({ params }) => {
   const carName = `${car.manufacturer} ${car.model} ${car.year}`;
 
   if (!car) {
-    return <Heading title="Car not found"></Heading>;
+    return <Heading text="Car not found"></Heading>;
   }
   return (
     <>
       <section className="bg-white mb-5 shadow px-4 py-4">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-          {carName}
-        </h1>
+        <Heading extraClassName="tracking-tight" text={carName} />
       </section>
       <div className="bg-white shadow rounded-lg p-6">
         <Link
