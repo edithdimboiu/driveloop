@@ -6,13 +6,16 @@ import Logo from "./Logo";
 import destroySession from "@/app/services/destroySession";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { useAuth } from "@/app/context/authContext";
 
 const Header = () => {
   const router = useRouter();
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
 
   const handleLogout = async () => {
     const { success, error } = await destroySession();
     if (success) {
+      setIsAuthenticated(false);
       router.push("/login");
     } else {
       toast.error(error);
@@ -35,18 +38,22 @@ const Header = () => {
                   Cars
                 </Link>
                 {/* Logged In Only */}
-                <Link
-                  href="/rented"
-                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-neutral-700 hover:text-white"
-                >
-                  Rented
-                </Link>
-                <Link
-                  href="/cars/add"
-                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-neutral-700 hover:text-white"
-                >
-                  Add Car
-                </Link>
+                {isAuthenticated && (
+                  <>
+                    <Link
+                      href="/rented"
+                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-neutral-700 hover:text-white"
+                    >
+                      Rented
+                    </Link>
+                    <Link
+                      href="/cars/add"
+                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-neutral-700 hover:text-white"
+                    >
+                      Add Car
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -54,29 +61,37 @@ const Header = () => {
           <div className="ml-auto">
             <div className="ml-4 flex items-center md:ml-6">
               {/* Logged Out Only */}
-              <Link
-                href="/login"
-                className="mr-3 text-gray-800 hover:text-gray-600"
-              >
-                <FaSignInAlt className="inline mr-1" /> Login
-              </Link>
-              <Link
-                href="/register"
-                className="mr-3 text-gray-800 hover:text-gray-600"
-              >
-                <FaUser className="inline mr-1" />
-                Register
-              </Link>
-              <Link href="">
-                <FaBuilding className="inline mr-1" /> My Cars
-              </Link>
-              <button
-                onClick={handleLogout}
-                className="mx-3 text-gray-800 hover:text-gray-600"
-              >
-                <FaSignOutAlt className="inline mr-1" />
-                Sign Out
-              </button>
+              {!isAuthenticated && (
+                <>
+                  <Link
+                    href="/login"
+                    className="mr-3 text-gray-800 hover:text-gray-600"
+                  >
+                    <FaSignInAlt className="inline mr-1" /> Login
+                  </Link>
+                  <Link
+                    href="/register"
+                    className="mr-3 text-gray-800 hover:text-gray-600"
+                  >
+                    <FaUser className="inline mr-1" />
+                    Register
+                  </Link>
+                </>
+              )}
+              {isAuthenticated && (
+                <>
+                  <Link href="/cars/my">
+                    <FaBuilding className="inline mr-1" /> My Cars
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="mx-3 text-gray-800 hover:text-gray-600"
+                  >
+                    <FaSignOutAlt className="inline mr-1" />
+                    Sign Out
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -92,18 +107,22 @@ const Header = () => {
             Cars
           </Link>
           {/* Logged In Only */}
-          <Link
-            href="/rented"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
-          >
-            Rented
-          </Link>
-          <Link
-            href="/cars/add"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
-          >
-            Add Car
-          </Link>
+          {isAuthenticated && (
+            <>
+              <Link
+                href="/rented"
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
+              >
+                Rented
+              </Link>
+              <Link
+                href="/cars/add"
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
+              >
+                Add Car
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>
