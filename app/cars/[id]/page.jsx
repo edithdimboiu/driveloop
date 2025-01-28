@@ -6,7 +6,7 @@ import BookingForm from "@/components/BookingForm";
 import { getCarById } from "@/app/services/getCarById";
 
 const CarPage = async ({ params }) => {
-  const { id } = params;
+  const { id } = await params;
   const car = await getCarById(id);
   const carName = `${car.manufacturer} ${car.model} ${car.year}`;
 
