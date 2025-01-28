@@ -4,8 +4,8 @@ import jwt from "jsonwebtoken";
 import User from "@/models/User";
 
 async function checkAuth() {
-  const sessionCookie = cookies().get("auth-token");
-
+  const cookiesInstance = await cookies();
+  const sessionCookie = cookiesInstance.get("auth-token");
   if (!sessionCookie) {
     return {
       isAuthenticated: false,

@@ -36,7 +36,8 @@ async function createSession(previousState, formData) {
       { expiresIn: "1h" }
     );
 
-    cookies().set("auth-token", token, {
+    const cookiesInstance = await cookies();
+    cookiesInstance.set("auth-token", token, {
       httpOnly: true,
       secure: true,
       sameSite: "strict",

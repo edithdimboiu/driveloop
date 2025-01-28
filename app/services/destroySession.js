@@ -4,7 +4,8 @@ import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 
 async function destroySession() {
-  const sessionCookie = await cookies().get("auth-token");
+  const cookiesInstance = await cookies();
+  const sessionCookie = cookiesInstance.get("auth-token");
   if (!sessionCookie) {
     return {
       error: "No session cookie found",
@@ -12,7 +13,8 @@ async function destroySession() {
   }
   try {
     const token = sessionCookie.value;
-    cookies().set("auth-token", "", { maxAge: -1 });
+    const cookiesInstance = await cookies();
+    cookiesInstance.set("auth-token", "", { maxAge: -1 });
     jwt.verify(token, process.env.JWT_SECRET);
 
     return {
