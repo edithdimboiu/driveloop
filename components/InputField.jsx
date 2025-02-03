@@ -1,6 +1,6 @@
 const InputField = ({ containerMargin = "mb-4", id, type = "text" }) => {
   const formatLabel = id => {
-    return id.replace("-", " ").replace(/\b\w/g, char => char.toUpperCase());
+    return id.replace(/-/g, " ").replace(/\b\w/g, char => char.toUpperCase());
   };
   return (
     <div className={containerMargin}>
