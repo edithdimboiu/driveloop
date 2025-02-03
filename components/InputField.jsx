@@ -1,4 +1,9 @@
-const InputField = ({ containerMargin = "mb-4", id, type = "text" }) => {
+const InputField = ({
+  containerMargin = "mb-4",
+  id,
+  type = "text",
+  ...props
+}) => {
   const formatLabel = id => {
     return id.replace(/-/g, " ").replace(/\b\w/g, char => char.toUpperCase());
   };
@@ -13,6 +18,7 @@ const InputField = ({ containerMargin = "mb-4", id, type = "text" }) => {
         name={id}
         className="border rounded w-full py-2 px-3"
         required
+        {...props}
       />
     </div>
   );
