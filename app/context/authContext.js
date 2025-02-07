@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     checkAuthentication();
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <AuthContext.Provider

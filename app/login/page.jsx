@@ -11,7 +11,7 @@ import { useAuth } from "../context/authContext";
 
 const LoginPage = () => {
   const [state, formAction] = useActionState(createSession, {});
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  const { setIsAuthenticated, setCurrentUser } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -21,6 +21,7 @@ const LoginPage = () => {
     if (state.success) {
       toast.success("Logged in successfully!");
       setIsAuthenticated(true);
+      setCurrentUser(state.user);
       router.push("/");
     }
   }, [state]);

@@ -9,7 +9,6 @@ const CarContext = createContext();
 export const CarProvider = ({ children }) => {
   const [cars, setCars] = useState([]);
   const { currentUser } = useAuth();
-  console.log(currentUser);
 
   useEffect(() => {
     const fetchCars = async () => {
