@@ -74,6 +74,20 @@ async function createCar(previousState, formData) {
 
     return {
       success: true,
+      carId: newCar._id.toString(),
+      manufacturer: newCar.manufacturer,
+      model: newCar.model,
+      year: newCar.year,
+      description: newCar.description,
+      engine_type: newCar.engine_type,
+      location: newCar.location,
+      address: newCar.address,
+      features: newCar.features,
+      availability: newCar.availability,
+      price_per_hour: newCar.price_per_hour,
+      minimum_rental_duration: newCar.minimum_rental_duration,
+      maximum_rental_duration: newCar.maximum_rental_duration,
+      image: newCar.image,
     };
   } catch (error) {
     console.log(error);
