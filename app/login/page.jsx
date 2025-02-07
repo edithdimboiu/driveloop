@@ -21,7 +21,7 @@ const LoginPage = () => {
     if (state.success) {
       toast.success("Logged in successfully!");
       setIsAuthenticated(true);
-      setInterval(() => router.push("/"), 2000);
+      router.push("/");
     }
   }, [state]);
   return (
