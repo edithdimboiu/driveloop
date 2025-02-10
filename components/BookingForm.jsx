@@ -1,8 +1,23 @@
-const BookingForm = () => {
+"use client";
+import rentCar from "@/app/services/rentCar";
+import { useEffect, useActionState } from "react";
+import { toast } from "react-toastify";
+
+const BookingForm = ({ car }) => {
+  const [state, formAction] = useActionState(rentCar, {});
+
+  useEffect(() => {
+    if (state.error) toast.error(state.error);
+    if (state.success) {
+      toast.success("Car has been rented!");
+    }
+  }, [state]);
+
   return (
     <div className="mt-6">
       <h2 className="text-xl font-bold">Rent this Car</h2>
-      <form className="mt-4">
+      <form className="mt-4" action={formAction}>
+        <input type="hidden" name="car_id" value={car._id}></input>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
             <label

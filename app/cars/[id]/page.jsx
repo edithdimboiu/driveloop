@@ -68,7 +68,7 @@ const CarPage = async ({ params }) => {
           </div>
         </div>
 
-        <BookingForm />
+        <BookingForm car={car} />
       </div>
     </>
   );
