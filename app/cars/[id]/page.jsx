@@ -8,15 +8,15 @@ import { getCarById } from "@/app/services/getCarById";
 const CarPage = async ({ params }) => {
   const { id } = await params;
   const car = await getCarById(id);
-  const carName = `${car.manufacturer} ${car.model} ${car.year}`;
 
   if (!car) {
     return <Heading text="Car not found"></Heading>;
   }
+
   return (
     <>
       <section className="bg-white mb-5 shadow px-4 py-4">
-        <Heading extraClassName="tracking-tight" text={carName} />
+        <Heading extraClassName="tracking-tight" text={car.car_name} />
       </section>
       <div className="bg-white shadow rounded-lg p-6">
         <Link
@@ -30,7 +30,7 @@ const CarPage = async ({ params }) => {
         <div className="flex flex-col sm:flex-row sm:space-x-6">
           <Image
             src={`/images/cars/${car.image}`}
-            alt={carName}
+            alt={car.car_name}
             width={400}
             height={100}
             className="w-full md:w-1/3 sm:w-1/2 h-68 object-right object-cover rounded-lg"

@@ -75,6 +75,7 @@ async function createCar(previousState, formData) {
     return {
       success: true,
       carId: newCar._id.toString(),
+      car_name: newCar.car_name,
       manufacturer: newCar.manufacturer,
       model: newCar.model,
       year: newCar.year,

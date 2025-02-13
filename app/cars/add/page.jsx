@@ -20,6 +20,7 @@ const AddCarPage = () => {
       router.push("/");
       addCarToState({
         _id: state.carId,
+        car_name: state.car_name,
         manufacturer: state.manufacturer,
         model: state.model,
         year: state.year,

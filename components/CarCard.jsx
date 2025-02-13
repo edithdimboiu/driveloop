@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CarCard = ({ car }) => {
-  const carName = `${car.manufacturer} ${car.model} ${car.year}`;
   return (
     <div className="bg-white shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
       <div className="flex flex-col sm:flex-row sm:space-x-4">
@@ -10,11 +9,11 @@ const CarCard = ({ car }) => {
           src={`/images/cars/${car.image}`}
           width={600}
           height={150}
-          alt={carName}
+          alt={car.car_name}
           className="w-full sm:w-44 sm:h-32 mb-3 sm:mb-0 object-cover rounded-lg"
         />
         <div className="space-y-1">
-          <h4 className="text-lg font-semibold">{carName}</h4>
+          <h4 className="text-lg font-semibold">{car.car_name}</h4>
           <p className="text-sm text-gray-600">
             <span className="font-semibold text-gray-800"> Location:</span>
             {car.location}
