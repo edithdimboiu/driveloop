@@ -38,7 +38,7 @@ export default async function getMyRentals() {
         ...rental,
         _id: rental._id.toString(),
         user_id: rental.user_id.toString(),
-        car_id: car?._id?.toString() || car.toString(),
+        car_id: car?._id?.toString(),
         car_name: car?.car_name,
       };
     });
