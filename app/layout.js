@@ -6,6 +6,7 @@ import { CarProvider } from "./context/carsContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@/assets/styles/globals.css";
+import { RentalsProvider } from "./context/rentalsContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,16 +19,18 @@ export default function RootLayout({ children }) {
   return (
     <AuthWrapper>
       <CarProvider>
-        <html lang="en">
-          <body className={`${inter.className} min-h-screen`}>
-            <Header />
-            <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 min-h-[calc(100vh-132px)]">
-              {children}
-            </main>
-            <Footer />
-            <ToastContainer />
-          </body>
-        </html>
+        <RentalsProvider>
+          <html lang="en">
+            <body className={`${inter.className} min-h-screen`}>
+              <Header />
+              <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 min-h-[calc(100vh-132px)]">
+                {children}
+              </main>
+              <Footer />
+              <ToastContainer />
+            </body>
+          </html>
+        </RentalsProvider>
       </CarProvider>
     </AuthWrapper>
   );
