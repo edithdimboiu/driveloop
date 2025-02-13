@@ -3,6 +3,7 @@ import { Schema, model, models } from "mongoose";
 const CarSchema = new Schema(
   {
     user_id: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    car_name: { type: String },
     manufacturer: { type: String, required: true },
     model: { type: String, required: true },
     year: { type: Number, required: true, max: new Date().getFullYear() },
@@ -31,5 +32,9 @@ const CarSchema = new Schema(
   }
 );
 
+CarSchema.pre("save", function (next) {
+  this.car_name = `${this.manufacturer} ${this.model} ${this.year}`;
+  next();
+});
 const Car = models.Car || model("Car", CarSchema);
 export default Car;
