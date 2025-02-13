@@ -2,18 +2,11 @@
 
 import Heading from "@/components/Heading";
 import { useRentalsContext } from "../context/rentalsContext";
-import { useState, useEffect } from "react";
 import RentedCarCard from "@/components/RentedCarCard";
 
 const RentedPage = () => {
   const { rentals } = useRentalsContext();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (rentals !== undefined && rentals !== null) {
-      setLoading(false);
-    }
-  }, [rentals]);
+  const loading = rentals === undefined || rentals === null;
 
   return (
     <>
