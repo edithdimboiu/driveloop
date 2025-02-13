@@ -46,26 +46,28 @@ async function rentCar(previousState, formData) {
       start_date_time,
       end_date_time
     );
-    console.log(isAvailable);
     if (!isAvailable) {
       return {
         error: "Car is not available for the selected dates.",
       };
     }
 
-    const newRental = {
-      user_id: user._id.toString(),
-      car_id: carId.toString(),
+    const newRental = new Rental({
+      user_id: user._id,
+      car_id: carId,
       start_date_time: start_date_time,
       end_date_time: end_date_time,
-    };
-    const rental = new Rental(newRental);
-    await rental.save();
-
-    revalidatePath("/rentals", "layout");
+    });
+    await newRental.save();
+    revalidatePath("/rented", "layout");
 
     return {
       success: true,
+      rental_id: newRental._id.toString(),
+      user_id: newRental.user_id.toString(),
+      car_id: newRental.car_id.toString(),
+      start_date_time: newRental.start_date_time,
+      end_date_time: newRental.end_date_time,
     };
   } catch (error) {
     console.log("Error during car rental:", error);
