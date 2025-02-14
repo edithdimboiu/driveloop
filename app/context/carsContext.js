@@ -26,10 +26,23 @@ export const CarProvider = ({ children }) => {
   const deleteCarFromState = carId => {
     setCars(prevCars => prevCars.filter(car => car._id !== carId));
   };
+  const updateCarInState = (carId, updatedData) => {
+    setCars(prevCars =>
+      prevCars.map(car =>
+        car._id === carId ? { ...car, ...updatedData } : car
+      )
+    );
+  };
 
   return (
     <CarContext.Provider
-      value={{ cars, setCars, deleteCarFromState, addCarToState }}
+      value={{
+        cars,
+        setCars,
+        deleteCarFromState,
+        addCarToState,
+        updateCarInState,
+      }}
     >
       {children}
     </CarContext.Provider>
