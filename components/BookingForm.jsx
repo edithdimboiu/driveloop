@@ -106,10 +106,16 @@ const BookingForm = ({ car }) => {
 
     return null; // No available dates found
   };
+  const isCarInactive = !car.isActive;
 
   return (
     <div className="mt-6">
       <h2 className="text-xl font-bold">Rent this Car</h2>
+      {isCarInactive && (
+        <div className="bg-red-500 text-white p-4 mb-4 rounded-md my-2">
+          This car is currently inactive and cannot be rented.
+        </div>
+      )}
       <form className="mt-4" action={formAction}>
         <input type="hidden" name="car_id" value={car._id}></input>
 
@@ -151,6 +157,7 @@ const BookingForm = ({ car }) => {
                 isDateFullyRented(pickUpDate) ? "bg-red-300" : "border-gray-300"
               }`}
               required
+              disabled={isCarInactive}
             />
           </div>
           <div>
@@ -173,7 +180,9 @@ const BookingForm = ({ car }) => {
               }}
               className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
-              disabled={!pickUpDate || isDateFullyRented(pickUpDate)}
+              disabled={
+                isCarInactive || !pickUpDate || isDateFullyRented(pickUpDate)
+              }
             />
           </div>
           <div>
@@ -196,7 +205,7 @@ const BookingForm = ({ car }) => {
                   : "border-gray-300"
               }`}
               required
-              disabled={!pickUpDate}
+              disabled={isCarInactive || !pickUpDate}
             />
           </div>
           <div>
@@ -219,7 +228,9 @@ const BookingForm = ({ car }) => {
               }}
               className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
-              disabled={!dropOffDate || isDateFullyRented(dropOffDate)}
+              disabled={
+                isCarInactive || !dropOffDate || isDateFullyRented(dropOffDate)
+              }
             />
           </div>
         </div>
@@ -243,7 +254,8 @@ const BookingForm = ({ car }) => {
               !dropOffDate ||
               !dropOffTime ||
               isDateFullyRented(pickUpDate) ||
-              isDateFullyRented(dropOffDate)
+              isDateFullyRented(dropOffDate) ||
+              isCarInactive
             }
           >
             Rent Car
