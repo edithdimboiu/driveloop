@@ -19,7 +19,7 @@ const DeleteButton = ({ carId }) => {
         toast.success("Car deleted successfully!");
         deleteCarFromState(carId);
       } else {
-        toast.error("Failed to delete car.", error);
+        toast.error(error);
       }
     }
   };
