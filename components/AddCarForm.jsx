@@ -5,6 +5,8 @@ const AddCarForm = ({ action }) => {
     <>
       <div className="bg-white shadow-lg rounded-lg p-6 w-full">
         <form action={action}>
+          <IsActiveCheckbox />
+
           <InputField id="manufacturer" />
           <InputField id="model" />
           <InputField
@@ -45,6 +47,7 @@ const AddCarForm = ({ action }) => {
           <p className="mb-2">Please introduce rental durations in hours.</p>
 
           <InputField containerMargin="mb-8" id="image" type="file" />
+
           <div className="flex flex-col gap-5">
             <button
               type="submit"
@@ -61,7 +64,7 @@ const AddCarForm = ({ action }) => {
 
 export default AddCarForm;
 
-export const Description = () => {
+const Description = () => {
   return (
     <div className="mb-4">
       <label
@@ -81,7 +84,7 @@ export const Description = () => {
   );
 };
 
-export const DropdownList = () => {
+const DropdownList = () => {
   return (
     <div className="mb-4">
       <label
@@ -101,6 +104,22 @@ export const DropdownList = () => {
         <option value="Diesel">Diesel</option>
         <option value="Gasoline">Gasoline</option>
       </select>
+    </div>
+  );
+};
+
+const IsActiveCheckbox = () => {
+  return (
+    <div className="mb-4">
+      <label htmlFor="isActive" className="block text-gray-700 font-bold mb-2">
+        Is your car available for renting?
+      </label>
+      <input
+        type="checkbox"
+        id="isActive"
+        name="isActive"
+        defaultChecked={true}
+      />
     </div>
   );
 };
