@@ -22,7 +22,7 @@ const LoginPage = () => {
       toast.success("Logged in successfully!");
       setIsAuthenticated(true);
       setCurrentUser(state.user);
-      router.push("/");
+      router.push("/cars");
     }
   }, [state]);
   return (

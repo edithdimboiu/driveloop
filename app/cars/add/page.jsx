@@ -17,7 +17,7 @@ const AddCarPage = () => {
     if (state.error) toast.error(state.error);
     if (state.success) {
       toast.success("Car added successfully!");
-      router.push("/");
+      router.push("/cars");
       addCarToState({
         _id: state.carId,
         car_name: state.car_name,

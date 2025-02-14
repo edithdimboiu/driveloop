@@ -10,7 +10,7 @@ const DeleteButton = ({ carId }) => {
 
   const handleDelete = async () => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this room?"
+      "Are you sure you want to delete this car?"
     );
 
     if (confirmed) {
