@@ -34,6 +34,7 @@ const AddCarPage = () => {
         minimum_rental_duration: state.minimum_rental_duration,
         maximum_rental_duration: state.maximum_rental_duration,
         image: state.image,
+        isActive: state.isActive,
       });
     }
   }, [state]);

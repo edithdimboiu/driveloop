@@ -45,6 +45,7 @@ async function createCar(previousState, formData) {
     formData.get("maximum-rental-duration"),
     10
   );
+  const isActive = formData.get("isActive") === "on" ? true : false;
 
   if (minimumRentalDuration > maximumRentalDuration) {
     return {
@@ -67,6 +68,7 @@ async function createCar(previousState, formData) {
       minimum_rental_duration: minimumRentalDuration,
       maximum_rental_duration: maximumRentalDuration,
       image: imagePath,
+      isActive,
     });
     await newCar.save();
 
@@ -89,6 +91,7 @@ async function createCar(previousState, formData) {
       minimum_rental_duration: newCar.minimum_rental_duration,
       maximum_rental_duration: newCar.maximum_rental_duration,
       image: newCar.image,
+      isActive: newCar.isActive,
     };
   } catch (error) {
     console.log(error);
