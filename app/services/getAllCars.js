@@ -6,7 +6,7 @@ import Car from "@/models/Car";
 export async function getAllCars() {
   try {
     await connectDB();
-    const cars = await Car.find({}).lean();
+    const cars = await Car.find({ isActive: true }).lean();
     return cars;
   } catch (error) {
     console.log("Failed to get cars", error);
