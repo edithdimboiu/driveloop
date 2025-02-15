@@ -62,8 +62,20 @@ const CarPage = async ({ params }) => {
                 CHF {car.price_per_hour} / hour
               </li>
               <li>
-                <span className="font-semibold text-gray-800">Address:</span>
-                {car.address}
+                <span className="font-semibold text-gray-800">Address:</span>{" "}
+                <Link
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    car.address
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline relative group"
+                >
+                  {car.address}
+                  <span className="absolute right-0 bottom-full mb-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded-md px-2 py-1">
+                    Open in Google Maps
+                  </span>
+                </Link>
               </li>
             </ul>
           </div>
