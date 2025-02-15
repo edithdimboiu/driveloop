@@ -69,7 +69,7 @@ const TopDeals = ({ cars }) => (
           <div className="flex flex-col flex-grow justify-between">
             <h3 className="text-l font-semibold mt-4">{car.car_name}</h3>
             <p className="text-gray-600 text-sm">
-              CHF {car.price_per_hour}/day
+              CHF {car.price_per_hour}/hour
             </p>
             <Link
               href={`/cars/${car._id}`}
