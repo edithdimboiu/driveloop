@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa";
 import BookingForm from "@/components/BookingForm";
 import { getCarById } from "@/app/services/getCarById";
+import Map from "@/components/Map";
 
 const CarPage = async ({ params }) => {
   const { id } = await params;
@@ -20,7 +21,7 @@ const CarPage = async ({ params }) => {
       </section>
       <div className="bg-white shadow rounded-lg p-6">
         <Link
-          href="/"
+          href="/cars"
           className="flex items-center text-gray-600 hover:text-gray-800 mb-4"
         >
           <FaChevronLeft className="inline mr-1" />
@@ -69,6 +70,11 @@ const CarPage = async ({ params }) => {
         </div>
 
         <BookingForm car={car} />
+
+        <div className="my-6">
+          <h3 className="text-lg font-semibold">Location on the map</h3>
+          <Map address={car.address} />
+        </div>
       </div>
     </>
   );
