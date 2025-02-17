@@ -42,9 +42,9 @@ const MyCarCard = ({ car }) => {
           {car.car_name}
         </Link>
       </div>
-      <div className="flex flex-col sm:flex-row w-full sm:w-auto sm:space-x-2 mt-2 sm:mt-0">
+      <div className="flex flex-col sm:flex-row w-full sm:w-auto  mt-2 sm:mt-0">
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded w-full mb-2 sm:w-auto sm:mb-0 text-center hover:bg-blue-700"
+          className="bg-blue-500 text-white px-4 py-2 rounded w-full mr-2 mb-2 sm:w-auto sm:mb-0 text-center hover:bg-blue-700"
           onClick={toggleCarStatus}
         >
           {isActive ? "Active" : "Inactive"}

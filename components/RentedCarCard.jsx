@@ -40,10 +40,10 @@ const RentedCarCard = ({ rental }) => {
           <strong>Drop Off:</strong> {formatDate(rental.end_date_time)}
         </p>
       </div>
-      <div className="flex flex-col sm:flex-row w-full sm:w-auto sm:space-x-2 mt-2 sm:mt-0">
+      <div className="flex flex-col sm:flex-row w-full sm:w-auto mt-2 sm:mt-0">
         <Link
           href={`/cars/${carId}`}
-          className="bg-blue-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700"
+          className="bg-blue-500 text-white px-4 py-2 rounded mr-2 mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700"
         >
           View Car
         </Link>
