@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+import ConfirmationModal from "./ConfirmationModal";
 
 import { toast } from "react-toastify";
 import { FaTrash } from "react-icons/fa";
@@ -7,30 +9,35 @@ import { useRentalsContext } from "@/app/context/rentalsContext";
 
 const CancelRentalButton = ({ rentalId }) => {
   const { deleteRentalFromState } = useRentalsContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleCancelClick = async () => {
-    const confirmed = window.confirm(
-      "Are you sure you want to cancel this rental?"
-    );
-
-    if (confirmed) {
-      const { success, error } = await cancelRental(rentalId);
-      if (success) {
-        toast.success("Rental canceled successfully!");
-        deleteRentalFromState(rentalId);
-      } else {
-        toast.error("Failed to cancel rental.", error);
-      }
+  const handleCancel = async () => {
+    const { success, error } = await cancelRental(rentalId);
+    if (success) {
+      toast.success("Rental canceled successfully!");
+      deleteRentalFromState(rentalId);
+    } else {
+      toast.error("Failed to cancel rental.", error);
     }
+    setIsModalOpen(false);
   };
 
   return (
-    <button
-      onClick={handleCancelClick}
-      className="bg-red-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-red-700"
-    >
-      <FaTrash className="inline mr-1" /> Cancel
-    </button>
+    <>
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="bg-red-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-red-700"
+      >
+        <FaTrash className="inline mr-1" /> Cancel
+      </button>
+      <ConfirmationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleCancel}
+        title="Confirm Cancelation"
+        message="Are you sure you want to cancel this rental?"
+      />
+    </>
   );
 };
 
