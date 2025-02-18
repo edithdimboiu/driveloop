@@ -3,6 +3,7 @@ import hero from "@/assets/images/hero.png";
 import Link from "next/link";
 import Heading from "@/components/Heading";
 import { getAllCars } from "@/app/services/getAllCars";
+import CarCard from "@/components/CarCard";
 
 const getRandomCars = (cars, numberOfCars) => {
   return [...cars].sort(() => Math.random() - 0.5).slice(0, numberOfCars);
@@ -54,30 +55,8 @@ const TopDeals = ({ cars }) => (
     />
     <div className="flex gap-6 overflow-x-auto scrollbar-hide px-4">
       {cars.map(car => (
-        <div
-          key={car._id}
-          className="flex-shrink-0 w-[300px] sm:w-[350px] bg-white p-4 rounded-lg shadow-md flex flex-col"
-        >
-          <div className="relative w-full h-56">
-            <Image
-              src={`/images/cars/${car.image}`}
-              alt={car.car_name}
-              fill
-              className="rounded-t-lg object-cover"
-            />
-          </div>
-          <div className="flex flex-col flex-grow justify-between">
-            <h3 className="text-l font-semibold mt-4">{car.car_name}</h3>
-            <p className="text-gray-600 text-sm">
-              CHF {car.price_per_hour}/hour
-            </p>
-            <Link
-              href={`/cars/${car._id}`}
-              className="block bg-blue-500 text-white py-2 mt-4 text-center rounded hover:bg-blue-700"
-            >
-              Rent Now
-            </Link>
-          </div>
+        <div key={car._id} className="flex-shrink-0 w-[300px] sm:w-[350px]">
+          <CarCard car={car} />
         </div>
       ))}
     </div>
