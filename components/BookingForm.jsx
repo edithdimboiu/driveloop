@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { getRentedDates } from "@/app/services/getRentedDates";
 import { useRentalsContext } from "@/app/context/rentalsContext";
+import { useAuth } from "@/app/context/authContext";
 
 const BookingForm = ({ car }) => {
   const [state, formAction] = useActionState(rentCar, {});
@@ -17,6 +18,7 @@ const BookingForm = ({ car }) => {
   const [dropOffTime, setDropOffTime] = useState("");
   const router = useRouter();
   const { addRentalToState } = useRentalsContext();
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     if (state.error) {
@@ -108,6 +110,13 @@ const BookingForm = ({ car }) => {
     return null; // No available dates found
   };
   const isCarInactive = !car.isActive;
+  if (!isAuthenticated) {
+    return (
+      <div className="bg-orange-500 text-white p-4 mb-4 rounded-md my-2">
+        You must be logged in to rent a car.
+      </div>
+    );
+  }
 
   return (
     <div className="mt-6">
