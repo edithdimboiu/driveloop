@@ -2,11 +2,15 @@
 
 import connectDB from "@/config/database";
 import Car from "@/models/Car";
+import { notFound } from "next/navigation";
 
 export async function getCarById(id) {
   try {
     await connectDB();
     const car = await Car.findById(id).lean();
+    if (!car) {
+      notFound();
+    }
     return {
       ...car,
       _id: car._id.toString(),
@@ -14,6 +18,6 @@ export async function getCarById(id) {
     };
   } catch (error) {
     console.log("Failed to get car.", error);
-    throw new Error("Car not found.");
+    notFound();
   }
 }
