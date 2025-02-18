@@ -11,7 +11,7 @@ const CarPage = async ({ params }) => {
   const car = await getCarById(id);
 
   if (!car) {
-    return <Heading text="Car not found"></Heading>;
+    notFound();
   }
 
   return (
