@@ -3,39 +3,34 @@ import Link from "next/link";
 
 const CarCard = ({ car }) => {
   return (
-    <div className="bg-white shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
-      <div className="flex flex-col sm:flex-row sm:space-x-4">
+    <div
+      key={car._id}
+      className="bg-white p-4 rounded-lg shadow-md flex flex-col h-full"
+    >
+      <div className="relative w-full h-56 mb-4">
         <Image
           src={`/images/cars/${car.image}`}
-          width={600}
-          height={150}
           alt={car.car_name}
-          className="w-full sm:w-44 sm:h-32 mb-3 sm:mb-0 object-cover rounded-lg"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="rounded-t-lg object-cover"
         />
-        <div className="space-y-1">
-          <h4 className="text-lg font-semibold">{car.car_name}</h4>
-          <p className="text-sm text-gray-600">
-            <span className="font-semibold text-gray-800"> Location:</span>
-            {car.location}
-          </p>
-          <p className="text-sm text-gray-600">
-            <span className="font-semibold text-gray-800"> Availability:</span>
-            {car.availability}
-          </p>
-          <p className="text-sm text-gray-600">
-            <span className="font-semibold text-gray-800"> Price:</span>
-            {` CHF ${car.price_per_hour}/ hour or CHF ${
-              car.price_per_hour * 8
-            }/ day`}
-          </p>
-        </div>
       </div>
-      <div className="flex flex-col sm:flex-row w-full sm:w-auto sm:space-x-2 mt-2 sm:mt-0">
+      <div className="flex flex-col flex-grow mb-4">
+        <h3 className="text-lg font-semibold">{car.car_name}</h3>
+        <p className="text-gray-600 text-sm mb-1">
+          <span className="font-semibold text-gray-800">Address:</span>{" "}
+          {car.address}
+        </p>
+        <p className="text-gray-600 text-sm mb-4">
+          <span className="font-semibold text-gray-800">Price:</span> CHF{" "}
+          {car.price_per_hour}/hour or CHF {car.price_per_hour * 8}/day
+        </p>
         <Link
           href={`/cars/${car._id}`}
-          className="bg-blue-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700"
+          className="block bg-blue-500 text-white py-2 mt-auto text-center rounded hover:bg-blue-700"
         >
-          View Car
+          Rent Car
         </Link>
       </div>
     </div>

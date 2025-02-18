@@ -11,7 +11,11 @@ export default async function Cars() {
         <Heading text="Available cars" />
       </section>
       {cars.length > 0 ? (
-        cars.map(car => <CarCard car={car} key={car.id}></CarCard>)
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {cars.map(car => (
+            <CarCard car={car} key={car.id} />
+          ))}
+        </div>
       ) : (
         <p>No cars available at the moment. Please try again later.</p>
       )}
