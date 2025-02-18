@@ -25,7 +25,7 @@ const CarCard = ({ car }) => {
           <p className="text-sm text-gray-600">
             <span className="font-semibold text-gray-800"> Price:</span>
             {` CHF ${car.price_per_hour}/ hour or CHF ${
-              car.price_per_hour * 7
+              car.price_per_hour * 8
             }/ day`}
           </p>
         </div>

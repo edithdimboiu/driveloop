@@ -31,6 +31,7 @@ const BookingForm = ({ car }) => {
         user_id: state.user_id,
         car_id: state.car_id,
         car_name: car.car_name,
+        price_per_hour: car.price_per_hour,
         start_date_time: state.start_date_time,
         end_date_time: state.end_date_time,
       });

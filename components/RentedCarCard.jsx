@@ -2,7 +2,8 @@ import Link from "next/link";
 import CancelRentalButton from "./CancelRentalButton";
 
 const RentedCarCard = ({ rental }) => {
-  const { car_id, car_name } = rental;
+  const { car_id, car_name, price_per_hour, start_date_time, end_date_time } =
+    rental;
   const carId = typeof car_id === "object" ? car_id._id : car_id;
 
   const formatDate = dateString => {
@@ -29,15 +30,38 @@ const RentedCarCard = ({ rental }) => {
     return `${month} ${day} at ${time}`;
   };
 
+  const calculateCost = () => {
+    const startDate = new Date(start_date_time);
+    const endDate = new Date(end_date_time);
+
+    // Total rental hours
+    const totalHours = (endDate - startDate) / (1000 * 60 * 60);
+
+    // Cost for rentals of 24 hours the maximum price is 8 * price per hour
+    const fullDays = Math.floor(totalHours / 24);
+    const fullDayPrice = fullDays * (8 * price_per_hour);
+
+    // Cost for remaining rental hours (under 24)
+    const remainingHours = totalHours % 24;
+    const remainingPrice = remainingHours * price_per_hour;
+
+    return fullDayPrice + remainingPrice;
+  };
+
+  const rentalCost = calculateCost();
+
   return (
     <div className="bg-white shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
       <div>
         <h4 className="text-lg font-semibold">{car_name}</h4>
         <p className="text-sm text-gray-600">
-          <strong>Pick Up:</strong> {formatDate(rental.start_date_time)}
+          <strong>Pick Up:</strong> {formatDate(start_date_time)}
         </p>
         <p className="text-sm text-gray-600">
-          <strong>Drop Off:</strong> {formatDate(rental.end_date_time)}
+          <strong>Drop Off:</strong> {formatDate(end_date_time)}
+        </p>
+        <p className="text-sm text-gray-600">
+          <strong>Rental Cost:</strong> CHF {rentalCost.toFixed(2)}
         </p>
       </div>
       <div className="flex flex-col sm:flex-row w-full sm:w-auto mt-2 sm:mt-0">
