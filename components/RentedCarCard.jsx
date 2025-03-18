@@ -51,9 +51,9 @@ const RentedCarCard = ({ rental }) => {
   const rentalCost = calculateCost();
 
   return (
-    <div className="bg-white shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
-      <div>
-        <h4 className="text-lg font-semibold">{car_name}</h4>
+    <div className="bg-white shadow-lg border rounded-lg gap-1 p-2 mt-4 sm:p-4 flex flex-row justify-between items-center">
+      <div className="w-2/3">
+        <h4 className="text-m m:text-lg font-semibold">{car_name}</h4>
         <p className="text-sm text-gray-600">
           <strong>Pick Up:</strong> {formatDate(start_date_time)}
         </p>
@@ -64,10 +64,10 @@ const RentedCarCard = ({ rental }) => {
           <strong>Rental Cost:</strong> CHF {rentalCost.toFixed(2)}
         </p>
       </div>
-      <div className="flex flex-col sm:flex-row w-full sm:w-auto mt-2 sm:mt-0">
+      <div className="flex flex-col w-1/3 sm:w-auto sm:flex-row mt-2 sm:mt-0">
         <Link
           href={`/cars/${carId}`}
-          className="bg-blue-500 text-white px-4 py-2 rounded mr-2 mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700"
+          className="bg-blue-500 text-white md:px-4 px-2 sm:py-2 py-1 rounded mr-2 mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700"
         >
           View Car
         </Link>

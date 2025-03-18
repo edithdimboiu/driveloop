@@ -26,7 +26,7 @@ const CancelRentalButton = ({ rentalId }) => {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="bg-red-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-red-700"
+        className="bg-red-500 text-white md:px-4 px-2 sm:py-2 py-1 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-red-700"
       >
         <FaTrash className="inline mr-1" /> Cancel
       </button>
