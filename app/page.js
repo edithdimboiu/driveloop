@@ -48,7 +48,7 @@ const HeroBanner = () => (
 );
 
 const TopDeals = ({ cars }) => (
-  <div className="py-16 bg-neutral-100">
+  <div className="py-16 ">
     <Heading
       extraClassName="text-4xl text-gray-800 text-center mb-8"
       text="Top Deals"
