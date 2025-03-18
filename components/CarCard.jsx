@@ -5,7 +5,8 @@ const CarCard = ({ car }) => {
   return (
     <div
       key={car._id}
-      className="bg-white p-4 rounded-lg shadow-md flex flex-col h-full"
+      className="bg-white p-4 rounded-lg shadow-xl flex flex-col h-full border
+      "
     >
       <div className="relative w-full h-56 mb-4">
         <Image
