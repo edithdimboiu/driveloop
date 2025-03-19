@@ -32,7 +32,7 @@ const RentalActionButton = ({ rentalId, isDisabled, actionType }) => {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className={`text-white md:px-4 px-2 sm:py-2 py-1 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center ${
+        className={`text-white md:px-4 px-2 sm:py-2 py-1 rounded mb-2 sm:mb-0 w-full sm:w-auto sm:min-w-[120px] text-center ${
           isDisabled
             ? "bg-gray-500 cursor-not-allowed pointer-events-none"
             : "bg-red-500 hover:bg-red-700"
