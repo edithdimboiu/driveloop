@@ -15,6 +15,7 @@ export async function getCarById(id) {
       ...car,
       _id: car._id.toString(),
       user_id: car.user_id.toString(),
+      isDeleted: car.isDeleted,
     };
   } catch (error) {
     console.log("Failed to get car.", error);

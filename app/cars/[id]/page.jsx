@@ -5,6 +5,7 @@ import { FaChevronLeft } from "react-icons/fa";
 import BookingForm from "@/components/BookingForm";
 import { getCarById } from "@/app/services/getCarById";
 import Map from "@/components/Map";
+import CarDeleted from "../../../components/CarDeleted";
 
 const CarPage = async ({ params }) => {
   const { id } = await params;
@@ -12,6 +13,9 @@ const CarPage = async ({ params }) => {
 
   if (!car) {
     notFound();
+  }
+  if (car.isDeleted) {
+    return <CarDeleted />;
   }
 
   return (
