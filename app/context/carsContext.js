@@ -14,7 +14,7 @@ export const CarProvider = ({ children }) => {
     const fetchCars = async () => {
       if (currentUser) {
         const cars = await getMyCars();
-        setCars(cars);
+        setCars(cars.filter(car => !car.isDeleted));
       }
     };
     fetchCars();

@@ -1,7 +1,5 @@
 "use server";
-import path from "path";
 import Car from "@/models/Car";
-import fs from "fs";
 import { getRentedDates } from "./getRentedDates";
 import { revalidatePath } from "next/cache";
 
@@ -33,19 +31,15 @@ async function deleteCar(carId) {
       };
     }
 
-    const imagePath = path.join(
-      process.cwd(),
-      "public",
-      "images",
-      "cars",
-      carToDelete.image
+    const deletedCar = await Car.findByIdAndUpdate(
+      carId,
+      { $set: { isDeleted: true } },
+      { new: true }
     );
 
-    if (fs.existsSync(imagePath)) {
-      fs.unlinkSync(imagePath);
+    if (!deletedCar) {
+      return { error: "Failed to mark car as deleted" };
     }
-
-    await Car.findByIdAndDelete(carId);
     revalidatePath("/cars/my", "page");
     revalidatePath("/", "layout");
     return { success: true };

@@ -27,6 +27,7 @@ const CarSchema = new Schema(
     maximum_rental_duration: { type: Number, required: true, min: 1, max: 72 },
     image: { type: String, required: true },
     isActive: { type: Boolean, default: true, required: true },
+    isDeleted: { type: Boolean, default: false },
   },
   {
     timestamps: true,
