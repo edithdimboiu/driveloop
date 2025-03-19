@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CancelRentalButton from "./CancelRentalButton";
+import RentalActionButton from "./RentalActionButton";
 import StatusBadge from "./StatusBadge";
 
 const RentedCarCard = ({ rental, status }) => {
@@ -50,6 +50,7 @@ const RentedCarCard = ({ rental, status }) => {
   };
 
   const rentalCost = calculateCost();
+  const isDisabled = status === "In Progress";
 
   return (
     <div className=" bg-white shadow-lg border rounded-lg gap-1 p-2 mt-4 sm:p-4 flex flex-row justify-between items-center">
@@ -68,13 +69,41 @@ const RentedCarCard = ({ rental, status }) => {
         </p>
       </div>
       <div className="flex flex-col w-1/3 sm:w-auto sm:flex-row mt-2 sm:mt-0">
-        <Link
-          href={`/cars/${carId}`}
-          className="bg-blue-500 text-white hover:bg-blue-700 md:px-4 px-2 sm:py-2 py-1 rounded mr-2 mb-2 sm:mb-0 w-full sm:w-auto text-center"
-        >
-          View Car
-        </Link>
-        <CancelRentalButton rentalId={rental._id} />
+        {status !== "Finalized" && (
+          <>
+            <Link
+              href={`/cars/${carId}`}
+              className={`bg-blue-500 text-white hover:bg-blue-700 md:px-4 px-2 sm:py-2 py-1 rounded mr-2 mb-2 sm:mb-0 w-full sm:w-auto text-center ${
+                isDisabled
+                  ? "bg-gray-500 cursor-not-allowed pointer-events-none"
+                  : ""
+              }`}
+            >
+              View Car
+            </Link>
+            <RentalActionButton
+              rentalId={rental._id}
+              isDisabled={isDisabled}
+              actionType="cancel"
+            />
+          </>
+        )}
+        {status === "Finalized" && (
+          <>
+            {" "}
+            <Link
+              href={`/cars/${carId}`}
+              className="bg-blue-500 text-white hover:bg-blue-700 md:px-4 px-2 sm:py-2 py-1 rounded mr-2 mb-2 sm:mb-0 w-full sm:w-auto text-center"
+            >
+              Rent Again
+            </Link>
+            <RentalActionButton
+              rentalId={rental._id}
+              isDisabled={isDisabled}
+              actionType="delete"
+            />
+          </>
+        )}
       </div>
     </div>
   );
