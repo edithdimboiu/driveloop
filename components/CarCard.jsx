@@ -8,7 +8,7 @@ const CarCard = ({ car }) => {
       className="bg-white p-4 rounded-lg shadow-xl flex flex-col h-full border
       "
     >
-      <div className="relative w-full h-56 mb-4">
+      <Link href={`/cars/${car._id}`} className="relative w-full h-56 mb-4">
         <Image
           src={`/images/cars/${car.image}`}
           alt={car.car_name}
@@ -16,7 +16,7 @@ const CarCard = ({ car }) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
           className="rounded-t-lg object-cover"
         />
-      </div>
+      </Link>
       <div className="flex flex-col flex-grow mb-4">
         <h3 className="text-lg font-semibold">{car.car_name}</h3>
         <p className="text-gray-600 text-sm mb-1">
