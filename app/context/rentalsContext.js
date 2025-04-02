@@ -8,12 +8,15 @@ const RentalsContext = createContext();
 
 export const RentalsProvider = ({ children }) => {
   const [rentals, setRentals] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const { currentUser } = useAuth();
 
   const fetchRentals = async () => {
     if (currentUser) {
       const rentals = await getMyRentals();
       setRentals(rentals);
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -33,6 +36,7 @@ export const RentalsProvider = ({ children }) => {
     <RentalsContext.Provider
       value={{
         rentals,
+        loading,
         setRentals,
         deleteRentalFromState,
         addRentalToState,
