@@ -6,9 +6,8 @@ import { useCarContext } from "@/app/context/carsContext";
 import { useRentalsContext } from "@/app/context/rentalsContext";
 
 const MyCarsPage = () => {
-  const { cars } = useCarContext();
+  const { cars, loading } = useCarContext();
   const { rentals } = useRentalsContext();
-  const loading = cars === undefined || cars === null;
 
   return (
     <>

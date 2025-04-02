@@ -9,6 +9,7 @@ const CarContext = createContext();
 
 export const CarProvider = ({ children }) => {
   const [cars, setCars] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
   const { fetchRentals } = useRentalsContext();
 
@@ -17,6 +18,7 @@ export const CarProvider = ({ children }) => {
       if (currentUser) {
         const cars = await getMyCars();
         setCars(cars.filter(car => !car.isDeleted));
+        setLoading(false);
       }
     };
     fetchCars();
@@ -44,6 +46,7 @@ export const CarProvider = ({ children }) => {
     <CarContext.Provider
       value={{
         cars,
+        loading,
         setCars,
         deleteCarFromState,
         addCarToState,
