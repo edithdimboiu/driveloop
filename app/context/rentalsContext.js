@@ -10,13 +10,13 @@ export const RentalsProvider = ({ children }) => {
   const [rentals, setRentals] = useState([]);
   const { currentUser } = useAuth();
 
+  const fetchRentals = async () => {
+    if (currentUser) {
+      const rentals = await getMyRentals();
+      setRentals(rentals);
+    }
+  };
   useEffect(() => {
-    const fetchRentals = async () => {
-      if (currentUser) {
-        const rentals = await getMyRentals();
-        setRentals(rentals);
-      }
-    };
     fetchRentals();
   }, [currentUser]);
 
@@ -36,6 +36,7 @@ export const RentalsProvider = ({ children }) => {
         setRentals,
         deleteRentalFromState,
         addRentalToState,
+        fetchRentals,
         currentUser,
       }}
     >
