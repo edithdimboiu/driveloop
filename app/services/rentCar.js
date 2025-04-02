@@ -3,6 +3,7 @@
 import connectDB from "@/config/database";
 import User from "@/models/User";
 import Rental from "@/models/Rental";
+import Car from "@/models/Car";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 import { redirect } from "next/navigation";
@@ -51,12 +52,19 @@ async function rentCar(previousState, formData) {
         error: "Car is not available for the selected dates.",
       };
     }
+    const car = await Car.findById(carId);
+    if (!car) {
+      return {
+        error: "Car not found",
+      };
+    }
 
     const newRental = new Rental({
       user_id: user._id,
       car_id: carId,
       start_date_time: start_date_time,
       end_date_time: end_date_time,
+      price_per_hour: car.price_per_hour,
     });
     await newRental.save();
     revalidatePath("/rented", "layout");
@@ -68,6 +76,7 @@ async function rentCar(previousState, formData) {
       car_id: newRental.car_id.toString(),
       start_date_time: newRental.start_date_time,
       end_date_time: newRental.end_date_time,
+      price_per_hour: newRental.price_per_hour,
     };
   } catch (error) {
     console.log("Error during car rental:", error);

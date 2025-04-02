@@ -40,7 +40,7 @@ export default async function getMyRentals() {
         user_id: rental.user_id.toString(),
         car_id: car?._id?.toString(),
         car_name: car?.car_name,
-        price_per_hour: car?.price_per_hour,
+        price_per_hour: rental.price_per_hour,
       };
     });
   } catch (error) {
