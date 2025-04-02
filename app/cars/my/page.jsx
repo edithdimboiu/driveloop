@@ -3,9 +3,11 @@
 import Heading from "@/components/Heading";
 import MyCarCard from "@/components/MyCarCard";
 import { useCarContext } from "@/app/context/carsContext";
+import { useRentalsContext } from "@/app/context/rentalsContext";
 
 const MyCarsPage = () => {
   const { cars } = useCarContext();
+  const { rentals } = useRentalsContext();
   const loading = cars === undefined || cars === null;
 
   return (
@@ -19,7 +21,7 @@ const MyCarsPage = () => {
             <Heading text="My cars" />
 
             {cars.map(car => (
-              <MyCarCard key={car._id} car={car} />
+              <MyCarCard key={car._id} car={car} rentals={rentals} />
             ))}
           </>
         ))}
