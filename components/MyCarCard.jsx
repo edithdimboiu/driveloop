@@ -23,7 +23,7 @@ const MyCarCard = ({ car }) => {
         throw new Error(response.error || "Failed to update car status");
       }
 
-      updateCarInState(carId, { isActive: response.isActive });
+      updateCarInState(carId, { ...car, isActive: response.isActive });
 
       toast.success(`Car is now ${response.isActive ? "active" : "inactive"}`);
     } catch (error) {
@@ -43,6 +43,12 @@ const MyCarCard = ({ car }) => {
         </Link>
       </div>
       <div className="flex flex-col sm:flex-row w-full sm:w-auto  mt-2 sm:mt-0">
+        <Link
+          href={`/cars/edit/${car._id}`}
+          className="bg-green-500 text-white px-4 py-2 rounded w-full sm:w-auto mr-2 mb-2 sm:mb-0 text-center hover:bg-green-700"
+        >
+          Edit
+        </Link>
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded w-full mr-2 mb-2 sm:w-auto sm:mb-0 text-center hover:bg-blue-700"
           onClick={toggleCarStatus}

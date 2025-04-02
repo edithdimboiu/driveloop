@@ -18,8 +18,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <AuthWrapper>
-      <CarProvider>
-        <RentalsProvider>
+      <RentalsProvider>
+        <CarProvider>
           <html lang="en">
             <body className={`${inter.className} min-h-screen`}>
               <Header />
@@ -30,8 +30,8 @@ export default function RootLayout({ children }) {
               <ToastContainer />
             </body>
           </html>
-        </RentalsProvider>
-      </CarProvider>
+        </CarProvider>
+      </RentalsProvider>
     </AuthWrapper>
   );
 }
