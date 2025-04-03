@@ -1,10 +1,8 @@
 "use server";
 import checkAuth from "./checkAuth";
 import { revalidatePath } from "next/cache";
-import fs from "fs";
-import path from "path";
 import Car from "@/models/Car";
-import { v4 as uuidv4 } from "uuid";
+import uploadImageToCloudinary from "../utils/uploadImageToCloudinary";
 
 export default async function updateCar(previousState, formData) {
   const carId = formData.get("carId");
@@ -21,16 +19,16 @@ export default async function updateCar(previousState, formData) {
   }
   const oldImagePath = car.image;
   // Handling file upload for image update
-  let imagePath;
+  let imageUrl;
   const image = formData.get("image");
 
   try {
-    imagePath = await saveImage(image, oldImagePath);
-    if (imagePath === null) {
-      imagePath = oldImagePath; // Keep the old image if a new one is not uploaded
+    imageUrl = await uploadImageToCloudinary(image, oldImagePath);
+    if (imageUrl === null) {
+      imageUrl = oldImagePath; // Keep the old image if a new one is not uploaded
     }
   } catch (error) {
-    return { error: "Error saving image locally" };
+    return { error: "Error uploading image to Cloudinary" };
   }
 
   const manufacturer = formData.get("manufacturer");
@@ -78,7 +76,7 @@ export default async function updateCar(previousState, formData) {
     updatedFields.minimum_rental_duration = minimumRentalDuration;
   if (car.maximum_rental_duration !== maximumRentalDuration)
     updatedFields.maximum_rental_duration = maximumRentalDuration;
-  if (car.image !== imagePath) updatedFields.image = imagePath;
+  if (car.image !== imageUrl) updatedFields.image = imageUrl;
   updatedFields.car_name = `${manufacturer} ${model} ${year}`;
 
   if (Object.keys(updatedFields).length === 0) {
@@ -115,50 +113,4 @@ export default async function updateCar(previousState, formData) {
     console.log(error);
     return { error: "An unexpected error has occurred" };
   }
-}
-
-async function saveImage(image, oldImagePath) {
-  const fsPromises = fs.promises;
-  if (!image || image.size === 0 || image.name === "undefined") return null;
-
-  const allowedExtensions = [".jpg", ".jpeg", ".png"];
-  const imageExtension = path.extname(image.name).toLowerCase();
-
-  if (!allowedExtensions.includes(imageExtension)) {
-    throw new Error("Only JPG, JPEG, and PNG files are allowed");
-  }
-
-  if (image.size > 5 * 1024 * 1024) {
-    throw new Error("Image size should not exceed 5MB");
-  }
-
-  // Delete the old image if a new one is uploaded when editing the car
-  if (oldImagePath) {
-    const oldImageFilePath = path.join(
-      process.cwd(),
-      "public",
-      "images",
-      "cars",
-      oldImagePath
-    );
-    try {
-      await fsPromises.unlink(oldImageFilePath);
-    } catch (error) {
-      console.error("Error deleting old image:", error);
-    }
-  }
-
-  const uniqueImageName = `car-${uuidv4()}${imageExtension}`;
-  const uploadPath = path.join(
-    process.cwd(),
-    "public",
-    "images",
-    "cars",
-    uniqueImageName
-  );
-
-  const buffer = await image.arrayBuffer();
-  await fsPromises.writeFile(uploadPath, Buffer.from(buffer));
-
-  return uniqueImageName;
 }

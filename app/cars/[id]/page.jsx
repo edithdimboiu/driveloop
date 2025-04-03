@@ -34,7 +34,7 @@ const CarPage = async ({ params }) => {
 
         <div className="flex flex-col sm:flex-row sm:space-x-6">
           <Image
-            src={`/images/cars/${car.image}`}
+            src={car.image}
             alt={car.car_name}
             width={400}
             height={100}

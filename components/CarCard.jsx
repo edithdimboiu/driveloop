@@ -10,7 +10,7 @@ const CarCard = ({ car }) => {
     >
       <Link href={`/cars/${car._id}`} className="relative w-full h-56 mb-4">
         <Image
-          src={`/images/cars/${car.image}`}
+          src={car.image}
           alt={car.car_name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"

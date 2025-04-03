@@ -1,10 +1,8 @@
 "use server";
 import checkAuth from "./checkAuth";
 import { revalidatePath } from "next/cache";
-import fs from "fs";
-import path from "path";
-import Car from "@/models/Car";
-import { v4 as uuidv4 } from "uuid";
+import Car from "@/models/Car.js";
+import uploadImageToCloudinary from "../utils/uploadImageToCloudinary";
 
 async function createCar(previousState, formData) {
   const { user } = await checkAuth();
@@ -16,14 +14,14 @@ async function createCar(previousState, formData) {
   }
 
   // Handling file upload
-  let imagePath;
+  let imageUrl;
   const image = formData.get("image");
 
   try {
-    imagePath = await saveImage(image);
+    imageUrl = await uploadImageToCloudinary(image);
   } catch (error) {
     return {
-      error: "Error saving image locally",
+      error: "Error uploading image to Cloudinary",
     };
   }
 
@@ -52,6 +50,7 @@ async function createCar(previousState, formData) {
       error: "Minimum rental duration cannot exceed maximum rental duration",
     };
   }
+
   try {
     const newCar = new Car({
       user_id: user.id,
@@ -67,9 +66,10 @@ async function createCar(previousState, formData) {
       price_per_hour: pricePerHour,
       minimum_rental_duration: minimumRentalDuration,
       maximum_rental_duration: maximumRentalDuration,
-      image: imagePath,
+      image: imageUrl,
       isActive,
     });
+
     await newCar.save();
 
     revalidatePath("/", "layout");
@@ -104,34 +104,3 @@ async function createCar(previousState, formData) {
 }
 
 export default createCar;
-
-async function saveImage(image) {
-  const fsPromises = fs.promises;
-
-  if (!image || image.size === 0 || image.name === "undefined") return null;
-
-  const allowedExtensions = [".jpg", ".jpeg", ".png"];
-  const imageExtension = path.extname(image.name).toLowerCase();
-
-  if (!allowedExtensions.includes(imageExtension)) {
-    throw new Error("Only JPG, JPEG, and PNG files are allowed");
-  }
-
-  if (image.size > 5 * 1024 * 1024) {
-    throw new Error("Image size should not exceed 5MB");
-  }
-
-  const uniqueImageName = `car-${uuidv4()}${imageExtension}`;
-  const uploadPath = path.join(
-    process.cwd(),
-    "public",
-    "images",
-    "cars",
-    uniqueImageName
-  );
-
-  const buffer = await image.arrayBuffer();
-  await fsPromises.writeFile(uploadPath, Buffer.from(buffer));
-
-  return uniqueImageName;
-}
