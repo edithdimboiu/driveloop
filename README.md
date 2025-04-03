@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Driveloop App
 
-## Getting Started
+The Driveloop app is designed for users who want to rent and manage a wide range of cars, including electric, hybrid, and traditional vehicles. The platform allows users to view car details, check availability, and manage rentals for various purposes like urban or long-distance trips.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Login and register users
+- Add and update cars of all types (electric, hybrid, traditional)
+- Rent cars of all types for all purposes
+- View detailed information about each car (make, model, year, description, etc.)
+- Check car availability based on user preferences
+- Upload and update car images to Cloudinary
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## User Interaction
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Users can create a new account, and afterwards login to access rentals data
+- Users can add, update, or delete cars from the app.
+- Users can rent, cancel rentals, or rent again the same car.
+- Each vehicle includes details such as location, price per hour, minimum/maximum rental duration, and additional features (e.g., backup camera, heated seats, Bluetooth).
+- The app automatically updates the availability and status of cars in real-time.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Data and Accuracy
 
-## Learn More
+- All vehicle data is stored in a MongoDB database.
+- The app uses the Cloudinary API to manage and store car images.
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies/Frameworks/Libraries
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js
+- MongoDB (via Mongoose)
+- Cloudinary
+- JavaScript
+- Node.js
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Installation and Setup
 
-## Deploy on Vercel
+Follow these steps to get the project up and running on your local machine:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Prerequisites
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Node.js (>=14.x)
+- npm (>=6.x) or yarn (>=1.x)
+
+### Install dependencies
+
+`npm install`
+or
+`yarn install`
+
+### Run application
+
+`npm run dev`
+or
+`yarn dev`
+
+The app should now be running on http://localhost:3000.
+
+###Demo
+If you want to try the app without registering, you can use the following demo credentials:
+
+        Username: user
+        Password: password
+
+Simply log in with these credentials to access the application.
