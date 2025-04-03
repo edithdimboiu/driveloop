@@ -38,6 +38,15 @@ const LoginPage = () => {
             linkHref="/register"
           />
         </form>
+        <div className="text-center text-sm text-gray-600 mt-4">
+          <p className="font-semibold">For Demo version:</p>
+          <p>
+            username: <span className="text-blue-500">user</span>
+          </p>
+          <p>
+            password: <span className="text-blue-500">password</span>
+          </p>
+        </div>
       </div>
     </div>
   );
