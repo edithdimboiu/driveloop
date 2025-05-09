@@ -15,6 +15,7 @@ const RentedPage = () => {
 
   return (
     <>
+      <Heading text="My rentals" />
       {categorizedRentals.map(rental => (
         <RentedCarCard
           key={rental._id}
