@@ -9,6 +9,7 @@ const RentalsContext = createContext();
 export const RentalsProvider = ({ children }) => {
   const [rentals, setRentals] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isRestored, setIsRestoredRentals] = useState(false);
 
   const { currentUser } = useAuth();
 
@@ -22,6 +23,13 @@ export const RentalsProvider = ({ children }) => {
   useEffect(() => {
     fetchRentals();
   }, [currentUser]);
+
+  useEffect(() => {
+    if (isRestored) {
+      fetchRentals();
+      setIsRestoredRentals(false);
+    }
+  }, [isRestored]);
 
   const addRentalToState = newRental => {
     setRentals(prevRentals => [...prevRentals, newRental]);
@@ -42,6 +50,7 @@ export const RentalsProvider = ({ children }) => {
         addRentalToState,
         fetchRentals,
         currentUser,
+        setIsRestoredRentals,
       }}
     >
       {children}

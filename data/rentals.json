@@ -1,0 +1,250 @@
+[{
+  "_id": {
+    "$oid": "67edabcb8dbda8094f72c30e"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "6786515ec165046bc92e0697"
+  },
+  "start_date_time": {
+    "$date": "2025-04-02T21:27:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-04T21:27:00.000Z"
+  },
+  "price_per_hour": 30,
+  "createdAt": {
+    "$date": "2025-04-02T21:27:39.601Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-02T21:27:39.601Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ee506aadc2064e8e4b6134"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "6786515ec165046bc92e0697"
+  },
+  "start_date_time": {
+    "$date": "2025-04-05T11:09:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-06T12:10:00.000Z"
+  },
+  "price_per_hour": 30,
+  "createdAt": {
+    "$date": "2025-04-03T09:10:02.741Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-03T09:10:02.741Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ee63fdd3b686cc0d7e1151"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "67b1bc97c165046bc92e0729"
+  },
+  "start_date_time": {
+    "$date": "2025-04-05T12:33:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-12T12:33:00.000Z"
+  },
+  "price_per_hour": 68,
+  "createdAt": {
+    "$date": "2025-04-03T10:33:33.098Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-03T10:33:33.098Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ee641abe640aa5736520df"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "67b1bc97c165046bc92e0732"
+  },
+  "start_date_time": {
+    "$date": "2025-04-03T13:34:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-05T12:33:00.000Z"
+  },
+  "price_per_hour": 81,
+  "createdAt": {
+    "$date": "2025-04-03T10:34:02.617Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-03T10:34:02.617Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ee674008e5093b2fdb9fa6"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "6786515ec165046bc92e0697"
+  },
+  "start_date_time": {
+    "$date": "2025-04-11T12:47:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-12T13:48:00.000Z"
+  },
+  "price_per_hour": 30,
+  "createdAt": {
+    "$date": "2025-04-03T10:47:28.351Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-03T10:47:28.351Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ee67562b9d53877660f71a"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "6786515ec165046bc92e0697"
+  },
+  "start_date_time": {
+    "$date": "2025-04-20T12:47:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-22T12:47:00.000Z"
+  },
+  "price_per_hour": 30,
+  "createdAt": {
+    "$date": "2025-04-03T10:47:50.926Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-03T10:47:50.926Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ee68ef48ca5061062c3bbb"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "6786515ec165046bc92e0697"
+  },
+  "start_date_time": {
+    "$date": "2025-04-07T12:54:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-07T14:54:00.000Z"
+  },
+  "price_per_hour": 50,
+  "createdAt": {
+    "$date": "2025-04-03T10:54:39.256Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-03T10:54:39.256Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67eeb4bfddf5599ca57b3347"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "67b1bc97c165046bc92e0726"
+  },
+  "start_date_time": {
+    "$date": "2025-04-03T18:17:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-04T18:18:00.000Z"
+  },
+  "price_per_hour": 100,
+  "createdAt": {
+    "$date": "2025-04-03T16:18:07.255Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-03T16:18:07.255Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67f6c4ba92db6a5c70ca2b75"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "67b1bc97c165046bc92e071e"
+  },
+  "start_date_time": {
+    "$date": "2025-04-13T08:00:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-20T08:00:00.000Z"
+  },
+  "price_per_hour": 43,
+  "createdAt": {
+    "$date": "2025-04-09T19:04:26.798Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-09T19:04:26.798Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67f6c7c995005f52743ec3ae"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "car_id": {
+    "$oid": "67b1bc97c165046bc92e0732"
+  },
+  "start_date_time": {
+    "$date": "2025-04-09T19:17:00.000Z"
+  },
+  "end_date_time": {
+    "$date": "2025-04-16T19:17:00.000Z"
+  },
+  "price_per_hour": 81,
+  "createdAt": {
+    "$date": "2025-04-09T19:17:29.568Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-09T19:17:29.568Z"
+  },
+  "__v": 0
+}]

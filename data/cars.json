@@ -1,0 +1,270 @@
+[{
+  "_id": {
+    "$oid": "6786515ec165046bc92e0697"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "manufacturer": "Fiat",
+  "model": "500e",
+  "year": 2024,
+  "description": "A compact and stylish electric city car, the 2024 Fiat 500e offers eco-friendly driving with modern features and a fun, nimble performance for urban environments.",
+  "engine_type": "Electric",
+  "location": "Garage B, Level 3",
+  "address": "Seestrasse 5, Zürich,Switzerland",
+  "features": "Backup Camera, Bluetooth, Keyless Entry, Heated Seats, Wireless Charging, Lane Assist, Regenerative Braking",
+  "availability": "Available 24/7",
+  "price_per_hour": 30,
+  "minimum_rental_duration": 2,
+  "maximum_rental_duration": 30,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743662610/driveloop/car_images/dd1c1264-71c5-413f-99e6-ec094e2e3089.jpg",
+  "car_name": "Fiat 500e 2024",
+  "isActive": true,
+  "updatedAt": {
+    "$date": "2025-04-06T14:59:17.729Z"
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "67b1bc97c165046bc92e071e"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "manufacturer": "Mini Cooper",
+  "model": "Clubman",
+  "year": 2019,
+  "description": "A stylish and fun-to-drive compact hatchback with a unique design, offering a blend of sporty performance and practicality for urban adventures.",
+  "engine_type": "Hybrid",
+  "location": "Lot D",
+  "address": "Avenue de la Gare 3, 1003 Lausanne",
+  "features": "Backup Camera, Bluetooth, Leather Seats, Keyless Entry, Adaptive Cruise Control, Panoramic Sunroof, Premium Audio System",
+  "availability": "Available 24/7",
+  "price_per_hour": 43,
+  "minimum_rental_duration": 3,
+  "maximum_rental_duration": 34,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743634482/2019-mini-cooper-clubman-all4-03-dh_qsrvjz.jpg",
+  "isActive": true,
+  "car_name": "Mini Cooper Clubman 2019",
+  "updatedAt": {
+    "$date": "2025-04-09T19:02:27.327Z"
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "67b1bc97c165046bc92e0729"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "manufacturer": "Jeep Wrangler",
+  "model": "4xe Rubicon",
+  "year": 2025,
+  "description": "A rugged and highly capable off-road SUV, the 2025 Jeep Wrangler Rubicon combines legendary 4x4 performance with modern technology and comfort for adventure enthusiasts.",
+  "engine_type": "Diesel",
+  "location": "Level 1 Parking",
+  "address": "Avenue de la Gare 3, 1003 Lausanne",
+  "features": "Off-Road Capabilities, Backup Camera, Bluetooth, Leather Seats, Adaptive Cruise Control, Keyless Entry, Heated Seats",
+  "availability": "Available 24/7",
+  "price_per_hour": 68,
+  "minimum_rental_duration": 4,
+  "maximum_rental_duration": 13,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743634483/2025-jeep-wrangler-rubicon-4xe-td-jw-250127-34_ikcxvu.jpg",
+  "isActive": true,
+  "car_name": "Jeep Wrangler 4xe Rubicon 2025",
+  "updatedAt": {
+    "$date": "2025-04-02T21:55:54.955Z"
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "67b1bc97c165046bc92e0721"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "manufacturer": "Mazda",
+  "model": "CX-5 SkyActiv-D",
+  "year": 2019,
+  "description": "A stylish and dynamic SUV that offers a perfect balance of performance, comfort, and fuel efficiency. Ideal for both city driving and long trips.",
+  "engine_type": "Gasoline",
+  "location": "Garage B",
+  "address": "Steinentorstrasse 10, 4051 Basel",
+  "features": "Backup Camera, Bluetooth, Keyless Entry, Adaptive Cruise Control, Heated Seats, Blind Spot Monitoring, Premium Audio System",
+  "availability": "Available 6 AM - 10 PM",
+  "price_per_hour": 48,
+  "minimum_rental_duration": 6,
+  "maximum_rental_duration": 42,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743634482/2019-mazda-cx-5-skyactiv-d_cubjnm.jpg",
+  "isActive": true,
+  "car_name": "Mazda CX-5 SkyActiv-D 2019",
+  "updatedAt": {
+    "$date": "2025-04-02T17:04:18.396Z"
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "67b1bc97c165046bc92e072b"
+  },
+  "user_id": {
+    "$oid": "679110430bc8fda51fbc4d79"
+  },
+  "manufacturer": "Lexus",
+  "model": "RX",
+  "year": 2023,
+  "description": "A luxurious and efficient SUV with a smooth hybrid powertrain, advanced safety features, and a refined interior for ultimate comfort.",
+  "engine_type": "Hybrid",
+  "location": "Lot D",
+  "address": "Bahnhofplatz 15, 6003 Luzern",
+  "features": "Backup Camera, Bluetooth, Leather Seats, Adaptive Cruise Control, Wireless Charging, Heated & Ventilated Seats, Panoramic Sunroof",
+  "availability": "Available 9 AM - 6 PM",
+  "price_per_hour": 71,
+  "minimum_rental_duration": 4,
+  "maximum_rental_duration": 31,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743634482/2020-lexus-rx450-h_3row_atomic-silver_noble-brown_mc_05_u861os.jpg",
+  "isActive": true,
+  "car_name": "Lexus RX 2023",
+  "updatedAt": {
+    "$date": "2025-03-18T13:37:09.112Z"
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "67b1bc97c165046bc92e0732"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "manufacturer": "Volkswagen",
+  "model": "ID. Buzz",
+  "year": 2021,
+  "description": "A futuristic and spacious electric van with a retro-inspired design, offering eco-friendly mobility and cutting-edge technology.",
+  "engine_type": "Electric",
+  "location": "Parking A",
+  "address": "Place Cornavin 5, 1201 Genève",
+  "features": "Backup Camera, Bluetooth, Keyless Entry, Panoramic Sunroof, Adaptive Cruise Control, Wireless Charging, Ambient Lighting",
+  "availability": "Available 9 AM - 6 PM",
+  "price_per_hour": 81,
+  "minimum_rental_duration": 6,
+  "maximum_rental_duration": 23,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743634482/2025-volkswagen-idbuzz-fd-di-241018-1_o8knif.jpg",
+  "isActive": true,
+  "car_name": "Volkswagen ID. Buzz 2021",
+  "isDeleted": false,
+  "updatedAt": {
+    "$date": "2025-04-09T19:07:32.017Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b1bc97c165046bc92e071a"
+  },
+  "user_id": {
+    "$oid": "679220eb0bc8fda51fbc4d8e"
+  },
+  "manufacturer": "BMW",
+  "model": "X5",
+  "year": 2022,
+  "description": "A premium SUV that offers a perfect blend of performance, luxury, and advanced technology. Designed for both urban and off-road adventures.",
+  "engine_type": "Gasoline",
+  "location": "Parking Lot B, Level 3",
+  "address": "Seefeldstrasse 45, 8008 Zürich",
+  "features": "Backup Camera, Bluetooth, Leather Seats, Panoramic Sunroof, Adaptive Cruise Control, Wireless Charging, Heated Seats",
+  "availability": "Available 8 AM - 10 PM",
+  "price_per_hour": 70,
+  "minimum_rental_duration": 3,
+  "maximum_rental_duration": 48,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743634483/402615-2022-bmw-x5_z6jdxq.jpg",
+  "isActive": true,
+  "car_name": "BMW X5 2022",
+  "updatedAt": {
+    "$date": "2025-03-21T13:59:37.581Z"
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "67b1bc97c165046bc92e071b"
+  },
+  "user_id": {
+    "$oid": "679110430bc8fda51fbc4d79"
+  },
+  "manufacturer": "Mercedes-Benz",
+  "model": "E-Class",
+  "year": 2021,
+  "description": "A luxury sedan that combines elegance, advanced technology, and outstanding comfort. Ideal for a premium and smooth driving experience.",
+  "engine_type": "Hybrid",
+  "location": "Garage D, Level 1",
+  "address": "Aeschenplatz 7, 4051 Basel",
+  "features": "Backup Camera, Bluetooth, Leather Seats, Adaptive Cruise Control, Keyless Entry, Ambient Lighting, Premium Audio System",
+  "availability": "Available 6 AM - 11 PM",
+  "price_per_hour": 65,
+  "minimum_rental_duration": 2,
+  "maximum_rental_duration": 36,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743634482/2018-mercedes-benz-e-class-coupe-01-lw_njy3c3.jpg",
+  "isActive": true,
+  "car_name": "Mercedes-Benz E-Class 2021",
+  "updatedAt": {
+    "$date": "2025-03-18T13:37:20.190Z"
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "67b1bc97c165046bc92e0719"
+  },
+  "user_id": {
+    "$oid": "679110430bc8fda51fbc4d79"
+  },
+  "manufacturer": "Tesla",
+  "model": "Model 3",
+  "year": 2023,
+  "description": "A high-performance electric sedan with cutting-edge technology, long-range capability, and a sleek design. Perfect for an eco-friendly and premium driving experience.",
+  "engine_type": "Electric",
+  "location": "Charging Station A, Level 2",
+  "address": "Bahnhofstrasse 10, 8001 Zürich",
+  "features": "Autopilot, Backup Camera, Bluetooth, Heated Seats, Keyless Entry, Wireless Charging, Premium Audio System",
+  "availability": "Available 24/7",
+  "price_per_hour": 50,
+  "minimum_rental_duration": 2,
+  "maximum_rental_duration": 24,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743634483/Tesla-model-3-2023_qojefx.jpg",
+  "isActive": true,
+  "car_name": "Tesla Model 3 2023",
+  "updatedAt": {
+    "$date": "2025-03-18T13:37:26.259Z"
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "67b1bc97c165046bc92e0726"
+  },
+  "user_id": {
+    "$oid": "679110430bc8fda51fbc4d79"
+  },
+  "manufacturer": "Ford",
+  "model": "Transit",
+  "year": 2021,
+  "description": "A spacious and reliable van, perfect for both passenger and cargo transport. Equipped with modern technology and safety features, it ensures a comfortable and efficient driving experience.",
+  "engine_type": "Diesel",
+  "location": "Lot D",
+  "address": "Bahnhofstrasse 1, 8001 Zürich",
+  "features": "Backup Camera, Bluetooth, Keyless Entry, Adaptive Cruise Control, Wi-Fi Hotspot, Lane-Keeping Assist, SYNC 3 Infotainment System",
+  "availability": "Available 9 AM - 6 PM",
+  "price_per_hour": 100,
+  "minimum_rental_duration": 6,
+  "maximum_rental_duration": 42,
+  "image": "https://res.cloudinary.com/driveloop/image/upload/v1743634483/ford-transit-2021_v8yq35.jpg",
+  "isActive": true,
+  "car_name": "Ford Transit 2021",
+  "updatedAt": {
+    "$date": "2025-03-18T13:37:28.182Z"
+  },
+  "isDeleted": false
+}]

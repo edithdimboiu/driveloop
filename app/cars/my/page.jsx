@@ -4,6 +4,7 @@ import Heading from "@/components/Heading";
 import MyCarCard from "@/components/MyCarCard";
 import { useCarContext } from "@/app/context/carsContext";
 import { useRentalsContext } from "@/app/context/rentalsContext";
+import RestoreDataButton from "@/components/RestoreDataButton";
 
 const MyCarsPage = () => {
   const { cars, loading } = useCarContext();
@@ -24,6 +25,7 @@ const MyCarsPage = () => {
             ))}
           </>
         ))}
+      <RestoreDataButton />
     </>
   );
 };

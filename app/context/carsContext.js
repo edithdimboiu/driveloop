@@ -12,17 +12,24 @@ export const CarProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
   const { fetchRentals } = useRentalsContext();
+  const [isRestored, setIsRestoredCars] = useState(false);
 
+  const fetchCars = async () => {
+    if (currentUser) {
+      const cars = await getMyCars();
+      setCars(cars.filter(car => !car.isDeleted));
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    const fetchCars = async () => {
-      if (currentUser) {
-        const cars = await getMyCars();
-        setCars(cars.filter(car => !car.isDeleted));
-        setLoading(false);
-      }
-    };
     fetchCars();
   }, [currentUser]);
+  useEffect(() => {
+    if (isRestored) {
+      fetchCars();
+      setIsRestoredCars(false);
+    }
+  }, [isRestored]);
 
   const addCarToState = newCar => {
     setCars(prevCars => [...prevCars, newCar]);
@@ -51,6 +58,7 @@ export const CarProvider = ({ children }) => {
         deleteCarFromState,
         addCarToState,
         updateCarInState,
+        setIsRestoredCars,
       }}
     >
       {children}
