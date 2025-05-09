@@ -1,10 +1,18 @@
 export const categorizeAndSortRentals = rentals => {
-  const now = new Date();
+  const now = Date.now();
 
   return rentals
     .map(rental => {
-      const start = new Date(rental.start_date_time);
-      const end = new Date(rental.end_date_time);
+      const start = new Date(
+        new Date(rental.start_date_time).toLocaleString("en-US", {
+          timeZone: "GMT",
+        })
+      );
+      const end = new Date(
+        new Date(rental.end_date_time).toLocaleString("en-US", {
+          timeZone: "GMT",
+        })
+      );
       let status = "";
 
       if (start > now) status = "Upcoming";
